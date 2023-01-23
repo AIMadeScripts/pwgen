@@ -26,3 +26,4 @@ I haven't added positional information however, just length and patterns/letters
 I ran it with 
 8 long with "bob" and "8" being the pattern and the must contain variable. This resulted in a file with 101,782,840 words and 897.1 MB in size.
 
+I have also included crunchpipe.sh which instead of creating the file will print to terminal so you can pipe it directly into hashcat for example
