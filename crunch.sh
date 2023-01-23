@@ -31,6 +31,8 @@ else
         wordcount=$(wc temporary.txt | awk '{print $2}')
         cat temporary.txt | while IFS= read -r line; do echo "Generating all possible permutations from the given information into output.txt $wordcount x number of lines crunch shows should give you an estimate"; crunch $length $length -f charset.lst.1 mixalpha-numeric-all-space -t "$line" >> output_temp.txt; clear; done
         cat output_temp.txt | sort | uniq >> output.txt
+        echo "All duplicates removed"
+        echo "Done!"
         rm output_temp.txt
     fi
 fi
