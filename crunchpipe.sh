@@ -1,12 +1,15 @@
 #!/bin/bash
 
-echo "How long is the word:"
-read length
-echo "Do you know any pattern that must be in the word:"
-read pattern
-echo "Do you know any other letters that must be in the word (comma separated):"
-read letters
-clear
+while getopts ":l:p:L:" opt; do
+  case $opt in
+    l) length="$OPTARG" ;;
+    p) pattern="$OPTARG" ;;
+    L) letters="$OPTARG" ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; exit 1;;
+    :) echo "Option -$OPTARG requires an argument." >&2; exit 1;;
+  esac
+done
+
 lengthassymbols=$(printf "@%.0s" $(seq 1 $length))
 
 if [[ -z $pattern ]]; then
